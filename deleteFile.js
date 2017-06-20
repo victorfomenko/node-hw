@@ -11,13 +11,6 @@ module.exports = (filePath, res) => {
         return;
     }
 
-    fs.stat(path, (err, stats) => {
-        if (err || !stats.isFile()) {
-            res.statusCode = 404;
-            res.end('File not found');
-            return;
-        }
-    });
     deleteFile(path, res);
 };
 
@@ -26,8 +19,8 @@ const deleteFile = (filePath, res) => {
         fs.unlinkSync(filePath);
         res.end('OK');
     } catch (e) {
-        res.statusCode = 500;
-        res.end('Server error');
+        res.statusCode = 404;
+        res.end('File not found');
     };
     return;
 };

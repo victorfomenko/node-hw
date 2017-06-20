@@ -31,8 +31,9 @@ const url = require('url');
 const sendFile = require('./sendFile');
 const createFile = require('./createFile');
 const deleteFile = require('./deleteFile');
+const http = require('http');
 
-require('http').createServer(function(req, res) {
+module.exports = http.createServer(function(req, res) {
   const filePath = url.parse(req.url).pathname;
 
   switch (req.method) {

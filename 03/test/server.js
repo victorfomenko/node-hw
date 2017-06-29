@@ -86,7 +86,7 @@ describe('Server tests', () => {
 
           const res = await rp.post(options).catch((e)=>e);
           expect(res.statusCode).toEqual(413);
-          
+
           setTimeout(() => {
             expect(fse.existsSync(config.get('filesRoot') + '/big.png')).toEqual(false);
           }, 30);

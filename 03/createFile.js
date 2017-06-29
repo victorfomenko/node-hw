@@ -17,7 +17,7 @@ module.exports = (filePath, req, res) => {
         res.end('Bad request');
         return;
     }
-    
+
     writeFile(path, res, req);
 };
 
